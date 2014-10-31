@@ -26,3 +26,7 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+*.swp
+.DS_Store
+public/js/bower_components
