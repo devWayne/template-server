@@ -1,5 +1,13 @@
 extends layout
 
 block content
+  script(src="js/app.js")
+  script(src="js/controllers.js")
+  body(ng-app="tsApp")
+  div.view-container
+    div.view-frame(ng-view)
+  md-progress-linear(mode="determinate" ng-value="determinateValue")
   h1= title
   p Welcome to #{title}
+  div(ng-controller="tsCtrl")
+   md-button.md-raised.md-primary Primary
