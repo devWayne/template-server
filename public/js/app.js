@@ -2,17 +2,23 @@ var tsApp=angular.module('tsApp',['ngRoute','tsControllers']);
 
 tsApp.config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
+    when('/step1', {
+      templateUrl: 'views/step1.html',
+      controller: 'step1Ctrl'
     }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
+    when('/step2', {
+      templateUrl: 'views/step2.html',
+      controller: 'step2Ctrl'
+    }).
+    when('/step3', {
+      templateUrl: 'views/step3.html',
+      controller: 'step3Ctrl'
+    }).
+    when('/step4', {
+      templateUrl: 'views/step4.html',
+      controller: 'step4Ctrl'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/step1'
     });
-
-  $locationProvider.html5Mode(true);
 });
