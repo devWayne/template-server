@@ -1,6 +1,7 @@
 var tsControllers=angular.module('tsControllers', ['ngMaterial']);
 
 tsControllers.controller('step1Ctrl', function($scope,$location) {
+	$scope.rating = 3;
        $scope.selectTpl=function(){
        	 $location.path('/step2');
        };
@@ -8,7 +9,7 @@ tsControllers.controller('step1Ctrl', function($scope,$location) {
 
 tsControllers.controller('step2Ctrl',function($scope,$http,$location,$rootScope) {
        $scope.configTpl=function(){
-	 $http.post('api/submitconfig',$scope.config).success(function(data){
+	 $http.post('api/configtpl',$scope.config).success(function(data){
 	 $rootScope.tplhtml=data.html;
        	 $location.path('/step3');
 	 })

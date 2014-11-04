@@ -1,3 +1,6 @@
-<div ng-controller="step1Ctrl">
+<div ng-controller="step1Ctrl" class="controller">
+	<h3>选择模板: {{rating}}/5</h3>
+    	<md-slider discrete ng-model="rating" step="1" min="1" max="5" aria-label="rating">
+   	</md-slider>
 	<md-button class="md-raised md-primary" ng-click="selectTpl()">确认选择</md-button>
 </div>
