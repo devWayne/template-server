@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>asdasd</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><style>img{
+    width: 100%;
+}
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.share-weixin{
+    font-size: 0px;
+}
+.share-weixin .share-btn{
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    font-size: 14px;
+    width: 200px;
+    border-radius: 5px;
+    margin: 380px auto 0px;
+    width: 4em;
+    display: block;
+}
+.share-weixin .webbaner{
+    background:url("http://t.dianping.com/events/m/1fqkdhy/topbg.jpg");
+    background-size: 100% 100%;
+    height:400px;
+    padding:1px;
+}</style></head><body><div class="share-weixin"><div class="webbaner"> <span style="" class="share-btn">立即查看</span></div><img src="http://t.dianping.com/events/m/1fqkdhy/topbg.jpg"></div><script src="http://i2.dpfile.com/hls/hippo2.min.v11.js"></script><script>var shareConfig = {
+    "appid":'',
+    "img_url":'',
+    "img_width":"640",
+    "img_height":"640",
+    "link":"http://t.dianping.com/events/m/1fqkdhy/topbg.jpg",
+    "desc":'',
+    "title":'http://t.dianping.com/events/m/1fqkdhy/topbg.jpg',
+    "timelineTitle":"http://t.dianping.com/events/m/1fqkdhy/topbg.jpg"
+};
+var binded = false;
+function bindShare(){
+    if(binded){
+        return;
+    }
+    if(window.WeixinJSBridge){
+        binded = true;
+        //分享好友
+        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+            WeixinJSBridge.invoke('sendAppMessage',shareConfig, function(res) {});
+        });
+        //分享朋友圈
+        WeixinJSBridge.on('menu:share:timeline', function(argv){
+            WeixinJSBridge.invoke('shareTimeline',shareConfig, function(res) {});
+        });
+    }
+}
+bindShare();
+document.addEventListener('WeixinJSBridgeReady', bindShare, false);</script></body></html>
