@@ -1,0 +1,20 @@
+<md-dialog aria-label="Mango (Fruit)">
+
+    <md-content>
+        <md-subheader class="md-sticky-no-effect">配置信息</md-subheader>
+        <md-text-float label="命名空间" ng-model="upload.dir"></md-text-float>
+        <md-text-float label="FTP地址" ng-model="upload.ftp.ipaddress"> </md-text-float>
+        <md-text-float label="用户名" ng-model="upload.ftp.username"> </md-text-float>
+        <md-text-float label="密码" ng-model="upload.ftp.password"> </md-text-float>
+    </md-content>
+
+    <div class="md-actions">
+        <md-button ng-click="confirm()" class="md-primary">
+            确认上传
+        </md-button>
+        <md-button ng-click="cancel()" >
+            取消上传
+        </md-button>
+    </div>
+
+</md-dialog>

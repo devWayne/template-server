@@ -1,4 +1,4 @@
-var tsApp=angular.module('tsApp',['ngRoute','tsControllers']);
+var tsApp=angular.module('tsApp',['ngRoute','tsControllers','tsServices']);
 
 tsApp.config(function ($routeProvider, $locationProvider) {
   $routeProvider.
