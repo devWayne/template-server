@@ -52,7 +52,7 @@ tsServices.factory('dialogUpload', function($mdDialog, $log) {
             }
         }).then(function() {
             alert = 'You said the information was.';
-	    console.log(alert);
+            console.log(alert);
         }, function() {
             alert = 'You cancelled the dialog.';
         });
@@ -70,5 +70,25 @@ tsServices.factory('dialogUpload', function($mdDialog, $log) {
         $scope.confirm = function() {
             $mdDialog.hide();
         };
+    }
+});
+
+tsServices.factory('validate', function(toastSv) {
+    return {
+        httpValiate: function(v, tips) {
+            if (v == undefined || v == "") {
+                toastSv(tips + '不能为空');
+		return;
+            } else if (!(/http[s]?\:\/\//.test(v))) {
+                toastSv(tips + '必须是URL地址，以Http开头');
+		return;
+            }
+        },
+        notNullValidate: function(v, tips) {
+            if (v == undefined || v == "") {
+                toastSv(tips + '不能为空');
+		return;
+            }
+        }
     }
 });

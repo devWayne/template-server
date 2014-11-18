@@ -2,6 +2,10 @@ var tsApp=angular.module('tsApp',['ngRoute','tsControllers','tsServices']);
 
 tsApp.config(function ($routeProvider, $locationProvider) {
   $routeProvider.
+    when('/step0', {
+      templateUrl: 'views/step0.html',
+      controller: 'step0Ctrl'
+    }).
     when('/step1', {
       templateUrl: 'views/step1.html',
       controller: 'step1Ctrl'
@@ -19,6 +23,6 @@ tsApp.config(function ($routeProvider, $locationProvider) {
       controller: 'step4Ctrl'
     }).
     otherwise({
-      redirectTo: '/step1'
+      redirectTo: '/step0'
     });
 });

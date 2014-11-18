@@ -34,3 +34,62 @@ position: absolute;
 left: 240px;
 top: 117px;
 }
+
+
+
+/** Tabs **/
+
+.demo-tab {
+  height: 300px;
+  text-align: center; 
+}
+
+/** Tabs end **/
+
+
+/** Buttons **/
+
+.lg-btn{
+ padding:5px 20px;
+}
+
+/** Buttons end **/
+
+/* line 108, ../sass/style.scss */
+ul{
+padding:0px;
+}
+
+.item-container {
+  width: 560px;
+  margin:0 auto;
+}
+/* line 110, ../sass/style.scss */
+.item-container .item {
+  /*display: inline-block;*/
+  background-color: #00BB87;
+  padding: 25px;
+  margin: 10px 0;
+  border-radius: 8px;
+  color: white;
+}
+/* line 119, ../sass/style.scss */
+.item-container.list .item {
+  float: left;
+  display: inline-block;
+  margin: 10px;
+  padding: 65px;
+}
+
+/* line 128, ../sass/style.scss */
+.item:hover {
+  cursor: pointer;
+  background-color: rgba(0, 187, 135, 0.9);
+}
+
+
+.tmpl-inline{
+padding: 15px;
+display: inline-block!important;
+width:50%;
+}

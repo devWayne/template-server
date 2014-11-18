@@ -1,0 +1,8 @@
+<div ng-controller="step0Ctrl" class="controller">
+	<h1>欢迎使用TemplateServer</h1>
+	<h2>使用说明</h2>
+    <ul class="item-container" ng-class="{'list' : layoutMode == 0}">
+        <li class="item" ng-class="animation" ng-repeat="item in list">{{item.title}}</li>
+    </ul>
+    <md-button class="md-raised md-primary lg-btn" ng-click="start()">开始使用</md-button>
+</div>
