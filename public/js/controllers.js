@@ -63,7 +63,7 @@ tsControllers.controller('step2Ctrl', function($scope, $http, $location, $rootSc
         validate.notNullValidate($scope.config, '标题');
         validate.notNullValidate($scope.config.title, '标题');
         validate.httpValidate($scope.config.webbanner, 'webbannerIMGurl');
-        validate.httpValidate($scope.configwebbottom, 'webbottomIMGurl');
+        validate.httpValidate($scope.config.webbottom, 'webbottomIMGurl');
         validate.httpValidate($scope.config.link, '标题');
         validate.notNullValidate($scope.config.share, '分享标题');
         validate.notNullValidate($scope.config.share.title, '分享标题');

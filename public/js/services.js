@@ -75,7 +75,7 @@ tsServices.factory('dialogUpload', function($mdDialog, $log) {
 
 tsServices.factory('validate', function(toastSv) {
     return {
-        httpValiate: function(v, tips) {
+        httpValidate: function(v, tips) {
             if (v == undefined || v == "") {
                 toastSv(tips + '不能为空');
 		return;
