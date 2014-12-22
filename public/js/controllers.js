@@ -67,8 +67,8 @@ tsControllers.controller('step2Ctrl', function($scope, $http, $location, $rootSc
         validate.httpValidate($scope.config.link, '标题');
         validate.notNullValidate($scope.config.share, '分享标题');
         validate.notNullValidate($scope.config.share.title, '分享标题');
-        validate.httpValidate($scope.config.link, '分享链接');
-        validate.httpValidate($scope.config.thumb, '分享thumb');
+        validate.httpValidate($scope.config.share.link, '分享链接');
+        validate.httpValidate($scope.config.share.thumb, '分享thumb');
 
         $http.post('api/configtpl', $scope.config).success(function(data) {
             $rootScope.tplhtml = data.html;
