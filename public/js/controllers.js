@@ -37,6 +37,10 @@ tsControllers.controller('step0Ctrl', function($scope, $location, $timeout) {
     $scope.start = function() {
         $location.path('/step1');
     };
+
+    $scope.upload =function(){
+    	$location.path('/upload');
+    }
 });
 
 tsControllers.controller('step1Ctrl', function($scope, $location) {
