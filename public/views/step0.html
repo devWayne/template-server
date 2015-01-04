@@ -1,9 +1,9 @@
-<div ng-controller="step0Ctrl" class="controller">
+<div class="controller">
 	<h1>欢迎使用TemplateServer</h1>
 	<h2>使用说明</h2>
     <ul class="item-container" ng-class="{'list' : layoutMode == 0}">
         <li class="item" ng-class="animation" ng-repeat="item in list">{{item.title}}</li>
     </ul>
     <md-button class="md-raised md-warn lg-btn margin-btn" ng-click="start()">开始使用</md-button>
-    <md-button class="md-raised md-primary lg-btn margin-btn" ng-click="start()">上传模板</md-button>
+    <md-button class="md-raised md-primary lg-btn margin-btn" ng-click="upload()">上传模板</md-button>
 </div>

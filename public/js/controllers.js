@@ -28,7 +28,7 @@ tsControllers.controller('step0Ctrl', function($scope, $location, $timeout) {
                     $scope.list.push({
                         title: tips[v]
                     });
-                }, 1000*v);
+                }, 1000 * v);
             })(i)
         };
     }
@@ -38,8 +38,8 @@ tsControllers.controller('step0Ctrl', function($scope, $location, $timeout) {
         $location.path('/step1');
     };
 
-    $scope.upload =function(){
-    	$location.path('/upload');
+    $scope.upload = function() {
+        $location.path('/upload');
     }
 });
 
@@ -102,4 +102,15 @@ tsControllers.controller('step3Ctrl', function($scope, $http, $location, $rootSc
 tsControllers.controller('step4Ctrl', function($scope, toastSv, dialogUpload) {
     $scope.toast = toastSv;
     $scope.upload = dialogUpload;
+});
+
+tsControllers.controller('uploadtpl', function($scope) {
+    $scope.uploadfile1 = function() {
+        fs.readFile(req.files.displayImage.path, function(err, data) {
+            var newPath = __dirname + "/uploads/uploadedFileName";
+            fs.writeFile(newPath, data, function(err) {
+                res.redirect("back");
+            });
+        });
+    }
 });

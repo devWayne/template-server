@@ -22,6 +22,10 @@ tsApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/step4.html',
       controller: 'step4Ctrl'
     }).
+    when('/upload', {
+      templateUrl: 'views/uploadtpl.html',
+      controller: 'uploadtpl'
+    }).
     otherwise({
       redirectTo: '/step0'
     });

@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var template = require('../lib/template');
+
 /* GET api listing. */
 router.post('/configtpl',template.jade2html);
 router.post('/maketpl',template.writehtml);
-router.get('/downloadtpl',template.downloadtpl)
+router.get('/downloadtpl',template.downloadtpl);
+router.post('/uploadhtml',template.uploadhtml);
 
 module.exports = router;
