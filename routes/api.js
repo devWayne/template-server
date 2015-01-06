@@ -9,5 +9,6 @@ router.post('/maketpl',template.writehtml);
 router.get('/downloadtpl',template.downloadtpl);
 router.post('/uploadhtml',template.uploadhtml);
 router.post('/uploadtpl',template.uploadtpl);
+router.get('/listtpl',template.listtpl);
 
 module.exports = router;
