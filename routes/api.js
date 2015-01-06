@@ -8,5 +8,6 @@ router.post('/configtpl',template.jade2html);
 router.post('/maketpl',template.writehtml);
 router.get('/downloadtpl',template.downloadtpl);
 router.post('/uploadhtml',template.uploadhtml);
+router.post('/uploadtpl',template.uploadtpl);
 
 module.exports = router;

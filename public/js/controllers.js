@@ -43,7 +43,7 @@ tsControllers.controller('step0Ctrl', function($scope, $location, $timeout) {
     }
 });
 
-tsControllers.controller('step1Ctrl', function($scope, $location) {
+tsControllers.controller('step1Ctrl', function($scope, $location,$rootScope) {
     $scope.data = {
         selectedIndex: 0,
         secondLocked: false,
@@ -58,6 +58,7 @@ tsControllers.controller('step1Ctrl', function($scope, $location) {
         $scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
     };
     $scope.selectTpl = function() {
+	$rootScope.tplname=$scope.tplname;
         $location.path('/step2');
     };
 });
@@ -99,18 +100,20 @@ tsControllers.controller('step3Ctrl', function($scope, $http, $location, $rootSc
     };
 });
 
-tsControllers.controller('step4Ctrl', function($scope, toastSv, dialogUpload) {
+tsControllers.controller('step4Ctrl', function($scope, toastSv) {
     $scope.toast = toastSv;
     $scope.upload = dialogUpload;
 });
 
-tsControllers.controller('uploadtpl', function($scope) {
-    $scope.uploadfile1 = function() {
-        fs.readFile(req.files.displayImage.path, function(err, data) {
-            var newPath = __dirname + "/uploads/uploadedFileName";
-            fs.writeFile(newPath, data, function(err) {
-                res.redirect("back");
-            });
-        });
+tsControllers.controller('uploadtpl', function($scope,$http,toastSv) {
+    $scope.uploadfile = function() {
+	 $http.post('api/uploadtpl',$scope.tpl).success(function(data){
+	 	if(data.code==200){
+		toastSv('上传成功');
+		}
+		else{
+		toastSv('上传遇到问题：');
+		}
+	 })   
     }
 });

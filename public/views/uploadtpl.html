@@ -1,7 +1,11 @@
 <div class="controller">
     <md-content>
-    <div><input id="file1" type="file" class="upload-input" name="file1" /></div>
-    <div><input id="file2" type="file" class="upload-input" name="file2" /></div>
-    <div><input id="file3" type="file" class="upload-input" name="file3" /></div>
+    	<md-text-float label="模板名称" ng-model="tpl.name"></md-text-float>
+    	<h3>Jade</h3>
+    	<textarea style="width:50%;height:300px;" ng-model="tpl.jade"></textarea>
+	<h3>config.js</h3>
+    	<textarea style="width:50%;height:300px;" ng-model="tpl.config"></textarea>
+        <md-text-float label="模板效果图" ng-model="tpl.img"></md-text-float>
+        <md-button class="md-raised md-primary lg-btn" ng-click="uploadfile()">上传模板</md-button>
     </md-content>
 </div>
