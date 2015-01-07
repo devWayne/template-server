@@ -10,5 +10,5 @@ router.get('/downloadtpl',template.downloadtpl);
 router.post('/uploadhtml',template.uploadhtml);
 router.post('/uploadtpl',template.uploadtpl);
 router.get('/listtpl',template.listtpl);
-
+router.post('/selecttpl',template.selecttpl);
 module.exports = router;

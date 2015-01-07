@@ -1,12 +1,14 @@
-<div ng-controller="step1Ctrl">
+<div class="controller">
     <h3>选择模板: </h3>
     <md-tabs md-selected="selectedIndex">
-        <md-tab ng-repeat="tpl in tplList" md-on-select="announceSelected(tpl)" ng-disabled="tpl.disabled" label="{{tpl.fileName}}">
-            <div class="demo-tpl tpl{{$index%4}}" layout="column" layout-fill layout-align="space-around center">
-                <img ng-src="{{tpl.configImg}}" />
-            </div>
-                   </md-tab>
-    </md-tabs>
+    <md-tab ng-repeat="tpl in tplList" md-on-select="announceSelected(tpl)" label="{{tpl.fileName}}">
+    <div class="demo-tab tab{{$index%4}}" layout="column" layout-fill layout-align="space-around center">
+	    <img ng-src="{{tpl.configImg}}"/>
+   </div>
+    </md-tab>
+  </md-tabs>   
+  <div class="after-tabs-area" layout="row" layout-sm="column" layout-margin layout-align="left center">
+        <md-text-float type="number" label="Selected Index" ng-model="selectedIndex"></md-text-float>
+    </div>
      <md-button class="md-raised md-warn lg-btn" ng-click="confirm()">确认选择</md-button>
-
 </div>

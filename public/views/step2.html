@@ -1,18 +1,10 @@
 <div class="controller">  
   <md-content>
-    <form style="padding: 20px;">
-      <md-text-float label="页面标题" ng-model="config.title"> </md-text-float>
-      <div class="row">
-          <md-text-float label="webbannerIMGurl" ng-model="config.webbanner" ng-pattern="/http[s]?\:\/\//"> </md-text-float>
-          <md-text-float label="webbottomIMGurl" ng-model="config.webbottom" ng-pattern="/http[s]?\:\/\//"> </md-text-float>
-      </div>
-      <md-text-float label="跳转地址" ng-model="config.link" ng-pattern="/http[s]?\:\/\//"> </md-text-float>
-      <div class="row">
-        <md-text-float label="分享标题" ng-model="config.share.title"> </md-text-float>
-        <md-text-float label="分享链接" ng-model="config.share.link" ng-pattern="/http[s]?\:\/\//"> </md-text-float>
-        <md-text-float label="分享Thumb" ng-model="config.share.thumb" ng-pattern="/http[s]?\:\/\//"> </md-text-float>
-      </div>
-    </form>
-    <md-button class="md-raised md-primary lg-btn" ng-click="configTpl()">生成页面</md-button>
+
+<div class="row" ng-repeat="con in configList">
+	<md-text-float label="{{con.word}}" ng-model="configContent[con.name]"></md-text-float>
+</div>
+  
+      <md-button class="md-raised md-primary lg-btn" ng-click="configTpl()">生成页面</md-button>
   </md-content>
 </div>

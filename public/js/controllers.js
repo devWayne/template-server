@@ -45,39 +45,42 @@ tsControllers.controller('step0Ctrl', function($scope, $location, $timeout) {
 
 tsControllers.controller('step1Ctrl', function($scope, $http, $location, $rootScope) {
     $http.get('api/listtpl').success(function(tplList) {
-   	 $scope.tplList=tplList.nameList;
-    })
-	
-    $scope.next = function() {
-        $scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2);
-    };
+        $scope.tplList = tplList.nameList;
 
-    $scope.previous = function() {
-        $scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
-    };
-    $scope.announceSelected=function(tpl) {
-      $rootScope.filename = tpl.fileName;
+    })
+    $scope.selectedIndex;
+    
+    $scope.announceSelected = function(tpl) {
+	$rootScope.fileName=tpl.fileName
     }
-    $scope.selectedIndex = 2;
-    $scope.confirm=function(){
-    	 $location.path('/step2');
+
+    $scope.confirm = function() {
+        $location.path('/step2');
     }
-     
-});
+})
 
 tsControllers.controller('step2Ctrl', function($scope, $http, $location, $rootScope, validate) {
-    $scope.configTpl = function() {
-        validate.notNullValidate($scope.config, '标题');
-        validate.notNullValidate($scope.config.title, '标题');
-        validate.httpValidate($scope.config.webbanner, 'webbannerIMGurl');
-        validate.httpValidate($scope.config.webbottom, 'webbottomIMGurl');
-        validate.httpValidate($scope.config.link, '标题');
-        validate.notNullValidate($scope.config.share, '分享标题');
-        validate.notNullValidate($scope.config.share.title, '分享标题');
-        validate.httpValidate($scope.config.share.link, '分享链接');
-        validate.httpValidate($scope.config.share.thumb, '分享thumb');
 
-        $http.post('api/configtpl', $scope.config).success(function(data) {
+    $scope.configContent = {};
+    $http.post('api/selecttpl', {
+        filename: $rootScope.fileName
+    }).success(function(configtpl) {
+        $scope.configList = configtpl.config;
+    });
+
+
+    $scope.configTpl = function() {
+        /*        validate.notNullValidate($scope.config, '标题');
+                validate.notNullValidate($scope.config.title, '标题');
+                validate.httpValidate($scope.config.webbanner, 'webbannerIMGurl');
+                validate.httpValidate($scope.config.webbottom, 'webbottomIMGurl');
+                validate.httpValidate($scope.config.link, '标题');
+                validate.notNullValidate($scope.config.share, '分享标题');
+                validate.notNullValidate($scope.config.share.title, '分享标题');
+                validate.httpValidate($scope.config.share.link, '分享链接');
+                validate.httpValidate($scope.config.share.thumb, '分享thumb');*/
+
+        $http.post('api/configtpl', $scope.configContent).success(function(data) {
             $rootScope.tplhtml = data.html;
             $location.path('/step3');
         })
