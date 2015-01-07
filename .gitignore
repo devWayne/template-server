@@ -30,3 +30,4 @@ node_modules
 *.swp
 .DS_Store
 public/bower_components
+lib/template
